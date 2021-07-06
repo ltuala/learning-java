@@ -1,9 +1,8 @@
 package com.learningjava.firstjavaproject;
 
-public class HelloWorld {
-
+public class KeyboardShortcuts {
 	public static void main(String[] args) {
-		System.out.println("Hello World");
+		int i = 3 * 4;
+		System.out.println(i);
 	}
-
 }
