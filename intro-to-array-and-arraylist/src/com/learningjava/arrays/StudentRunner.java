@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 public class StudentRunner {
 
 	public static void main(String[] args) {
-		int[] marks = { 97, 98, 100 };
 
-		Student student = new Student("Leo", marks);
+		Student student = new Student("Leo", 98, 97, 100);
+
 		int number = student.getNumberOfMarks();
 		System.out.println("number of marks : " + number);
 
