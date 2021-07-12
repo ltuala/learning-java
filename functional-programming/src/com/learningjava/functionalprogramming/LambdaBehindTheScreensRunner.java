@@ -35,10 +35,17 @@ class NumberSquareMapper implements Function<Integer, Integer> {
 public class LambdaBehindTheScreensRunner {
 	public static void main(String[] args) {
 
-		List.of(23, 43, 34, 45, 36, 48).stream().filter(n -> n % 2 == 0).map(n -> n * n)
+		Predicate<? super Integer> evenPredicate = createEvenPredicate();
+		Predicate<? super Integer> oddPredicate = n -> n % 2 != 0;
+
+		List.of(23, 43, 34, 45, 36, 48).stream().filter(evenPredicate).map(n -> n * n)
 				.forEach(e -> System.out.println(e));
 
 		List.of(23, 43, 34, 45, 36, 48).stream().filter(new EvenNumberPredicate()).map(new NumberSquareMapper())
 				.forEach(new SystemOutConsumer());
+	}
+
+	private static Predicate<? super Integer> createEvenPredicate() {
+		return n -> n % 2 == 0;
 	}
 }
