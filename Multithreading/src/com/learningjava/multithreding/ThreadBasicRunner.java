@@ -25,7 +25,7 @@ class Task2 implements Runnable {
 }
 
 public class ThreadBasicRunner {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		System.out.println("\n[INFO] Task1 Kicked Off");
 		Task1 task1 = new Task1();
 		task1.setPriority(1);
@@ -36,6 +36,9 @@ public class ThreadBasicRunner {
 		Thread task2thread = new Thread(task2);
 		task2thread.setPriority(10);
 		task2thread.start();
+
+		task1.join();
+		task2thread.join();
 
 		System.out.println("\n[INFO] Task3 Kicked Off");
 		for (int i = 301; i <= 399; i++) {
