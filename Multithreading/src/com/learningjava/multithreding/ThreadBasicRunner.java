@@ -28,11 +28,13 @@ public class ThreadBasicRunner {
 	public static void main(String[] args) {
 		System.out.println("\n[INFO] Task1 Kicked Off");
 		Task1 task1 = new Task1();
+		task1.setPriority(1);
 		task1.start();
 
 		System.out.println("\n[INFO] Task2 Kicked Off");
 		Task2 task2 = new Task2();
 		Thread task2thread = new Thread(task2);
+		task2thread.setPriority(10);
 		task2thread.start();
 
 		System.out.println("\n[INFO] Task3 Kicked Off");
